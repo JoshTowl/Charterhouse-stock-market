@@ -20,8 +20,8 @@
 
   <script>
     var ctx = document.getElementById('priceChart').getContext('2d');
-    var timeLabels = ['12:00', '12:30', '13:00', '13:30', '14:00', '14:30']; // Sample time labels
-    var priceData = [10, 20, 30, 25, 35, 40]; // Sample price data
+    var timeLabels = ['1:00', '2:00', '3:00', '4:00', '5:00']; // Time labels
+    var priceData = [3, 5, 7, 4, 9]; // Sample price data
 
     var priceChart = new Chart(ctx, {
       type: 'line',
@@ -34,4 +34,28 @@
           borderWidth: 2,
           fill: false
         }]
-      
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Time (hours)'
+            }
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Price'
+            },
+            ticks: {
+              beginAtZero: true,
+              max: 10 // Set maximum value for y-axis
+            }
+          }]
+        }
+      }
+    });
+  </script>
+</body>
+</html>
