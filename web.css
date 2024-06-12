@@ -1,0 +1,37 @@
+/* Style the plot container */
+.plot-container {
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style the plot title */
+.plot-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style the x-axis label */
+.xaxis-label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Style the y-axis label */
+.yaxis-label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Style the legend */
+.legend {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+/* Style the lines */
+.plot-line {
+    stroke-width: 2;
+}
