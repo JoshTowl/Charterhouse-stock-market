@@ -1,0 +1,26 @@
+# Save the plot as an HTML file using Plotly for interactive features
+import plotly.graph_objs as go
+import plotly.io as pio
+
+# Create traces for each house
+trace1 = go.Scatter(x=stocks_zeroed.index, y=stocks_zeroed['Duckites'], mode='lines', name='Duckites', line=dict(color='blue'))
+trace2 = go.Scatter(x=stocks_zeroed.index, y=stocks_zeroed['Gownboys'], mode='lines', name='Gownboys', line=dict(color='orange'))
+trace3 = go.Scatter(x=stocks_zeroed.index, y=stocks_zeroed['Verites'], mode='lines', name='Verites', line=dict(color='green'))
+trace4 = go.Scatter(x=stocks_zeroed.index, y=stocks_zeroed['Sutton'], mode='lines', name='Sutton', line=dict(color='red'))
+
+# Create layout
+layout = go.Layout(
+    title='Stock Prices of Different Houses in 2023 (Starting from 0)',
+    xaxis=dict(title='Date'),
+    yaxis=dict(title='Stock Price Change from Initial Value'),
+    showlegend=True
+)
+
+# Create figure
+fig = go.Figure(data=[trace1, trace2, trace3, trace4], layout=layout)
+
+# Hide the lines initially by setting their opacity to 0
+fig.update_traces(visible='legendonly')
+
+# Save as HTML file
+pio.write_html(fig, file='/mnt/data/stock_prices.html', auto_open=False)
