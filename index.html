@@ -1,25 +1,12 @@
-imporplotly.graph_objs as go
-import plotly.io as pio
+import matplotlib.pyplot as plt
 
 
-trace1 = go.Scatter(x=stocks_zeroed.index, y=stocks_zeroed['Duckites'], mode='lines', name='Duckites', line=dict(color='blue'))
-trace2 = go.Scatter(x=stocks_zeroed.index, y=stocks_zeroed['Gownboys'], mode='lines', name='Gownboys', line=dict(color='orange'))
-trace3 = go.Scatter(x=stocks_zeroed.index, y=stocks_zeroed['Verites'], mode='lines', name='Verites', line=dict(color='green'))
-trace4 = go.Scatter(x=stocks_zeroed.index, y=stocks_zeroed['Sutton'], mode='lines', name='Sutton', line=dict(color='red'))
+time = [1, 2, 3, 4, 5] 
+price = [10, 15, 20, 25, 30]  
 
-
-layout = go.Layout(
-    title='Stock Prices of Different Houses in 2023 (Starting from 0)',
-    xaxis=dict(title='Date'),
-    yaxis=dict(title='Stock Price Change from Initial Value'),
-    showlegend=True
-)
-
-
-fig = go.Figure(data=[trace1, trace2, trace3, trace4], layout=layout)
-
-
-fig.update_traces(visible='legendonly')
-
-
-pio.write_html(fig, file='/mnt/data/stock_prices.html', auto_open=False)
+plt.plot(time, price, marker='o')  
+plt.title('Duckites Price Over Time') 
+plt.xlabel('Time')  
+plt.ylabel('Price') 
+plt.grid(True)  
+plt.show()  
