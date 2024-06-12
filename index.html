@@ -1,12 +1,16 @@
-import matplotlib.pyplot as plt
+import plotly.graph_objs as go
 
 
-time = [1, 2, 3, 4, 5] 
-price = [10, 15, 20, 25, 30]  
+time = [1, 2, 3, 4, 5]  
+price = [10, 15, 20, 25, 30] 
 
-plt.plot(time, price, marker='o')  
-plt.title('Duckites Price Over Time') 
-plt.xlabel('Time')  
-plt.ylabel('Price') 
-plt.grid(True)  
-plt.show()  
+
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=time, y=price, mode='markers+lines', name='Duckites Price'))
+
+# Add title and axis labels
+fig.update_layout(title='Duckites Price Over Time', xaxis_title='Time', yaxis_title='Price')
+
+# Display the plot
+fig.show()
+
